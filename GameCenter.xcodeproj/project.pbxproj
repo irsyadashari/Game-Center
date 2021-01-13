@@ -54,6 +54,135 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF3321F725AEDB8000910C96 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		BF3321F825AEDB8E00910C96 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BF3321FB25AEDBB800910C96 /* View */,
+				BF3321FA25AEDBA500910C96 /* Extensions */,
+				BF3321F925AEDBA000910C96 /* Network */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BF3321F925AEDBA000910C96 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BF3321FA25AEDBA500910C96 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BF3321FB25AEDBB800910C96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF3321FC25AEDBD600910C96 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				BF33220725AEDC4B00910C96 /* View */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		BF3321FD25AEDBDC00910C96 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BF33220625AEDC4000910C96 /* View */,
+				BF33220525AEDC3B00910C96 /* Router */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		BF3321FE25AEDBE200910C96 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BF33220425AEDC2E00910C96 /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		BF3321FF25AEDBEF00910C96 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				BF33220325AEDC1F00910C96 /* View */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		BF33220025AEDBF400910C96 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BF33220225AEDC1300910C96 /* View */,
+				BF33220125AEDC0C00910C96 /* Router */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BF33220125AEDC0C00910C96 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		BF33220225AEDC1300910C96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF33220325AEDC1F00910C96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF33220425AEDC2E00910C96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF33220525AEDC3B00910C96 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		BF33220625AEDC4000910C96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF33220725AEDC4B00910C96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BF40029625AE9C6000F51E07 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +246,8 @@
 		BF4002B925AE9C9400F51E07 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BF3321F825AEDB8E00910C96 /* Utils */,
+				BF3321F725AEDB8000910C96 /* DI */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -124,6 +255,11 @@
 		BF4002BA25AE9C9800F51E07 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				BF33220025AEDBF400910C96 /* Home */,
+				BF3321FF25AEDBEF00910C96 /* Game */,
+				BF3321FE25AEDBE200910C96 /* Search */,
+				BF3321FD25AEDBDC00910C96 /* Detail */,
+				BF3321FC25AEDBD600910C96 /* Favorite */,
 			);
 			path = Module;
 			sourceTree = "<group>";
