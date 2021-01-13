@@ -1,0 +1,50 @@
+//
+//  Injection.swift
+//  GameCenter
+//
+//  Created by Irsyad Ashari on 13/01/21.
+//
+
+import UIKit
+import Genre
+import Core
+import Game
+
+final class Injection: NSObject {
+    
+    func provideGenre<U: UseCase>() -> U where U.Request == Any, U.Response == [GenreModel] {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let locale = GetGenresLocaleDataSource(realm: appDelegate.realm)
+        let remote = GetGenresRemoteDataSource(endpoint: Endpoints.Gets.genres.url)
+        let mapper = GenreTransformer()
+        
+        let repository = GetGenresRepository(
+            localeDataSource: locale,
+            remoteDataSource: remote,
+            mapper: mapper)
+        
+        return Interactor(repository: repository) as! U
+    }
+    
+    func provideGames<U: UseCase>() -> U where U.Request == String, U.Response == [GameModel] {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let locale = GetGamesLocaleDataSource(realm: appDelegate.realm)
+        let remote = GetGamesRemoteDataSource(endpoint: Endpoints.Gets.genres.url)
+        
+        let tagMapper = TagTransformer()
+        let gameMapper = GameTransformer(tagMapper: tagMapper)
+        let mapper = GamesTransformer(gameMapper: gameMapper)
+        
+        let repository = GetGamesRepository(
+            localeDataSource: locale,
+            remoteDataSource: remote,
+            mapper: mapper)
+        
+        return Interactor(repository: repository) as! U
+    }
+    
+    
+    
+}

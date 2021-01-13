@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BF0FBFB925AEBBC200E42731 /* Game in Frameworks */ = {isa = PBXBuildFile; productRef = BF0FBFB825AEBBC200E42731 /* Game */; };
+		BF33220925AEDE8500910C96 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33220825AEDE8500910C96 /* Injection.swift */; };
+		BF33220D25AEDF6400910C96 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33220C25AEDF6400910C96 /* APICall.swift */; };
 		BF4002A325AE9C6000F51E07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4002A225AE9C6000F51E07 /* AppDelegate.swift */; };
 		BF4002A525AE9C6000F51E07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4002A425AE9C6000F51E07 /* SceneDelegate.swift */; };
 		BF4002A725AE9C6000F51E07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4002A625AE9C6000F51E07 /* ContentView.swift */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		BF0FBFB625AEBB7900E42731 /* Game */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Game; path = modules/Game; sourceTree = "<group>"; };
+		BF33220825AEDE8500910C96 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		BF33220C25AEDF6400910C96 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		BF40029F25AE9C6000F51E07 /* GameCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4002A225AE9C6000F51E07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF4002A425AE9C6000F51E07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 		BF3321F725AEDB8000910C96 /* DI */ = {
 			isa = PBXGroup;
 			children = (
+				BF33220825AEDE8500910C96 /* Injection.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -74,6 +79,7 @@
 		BF3321F925AEDBA000910C96 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BF33220C25AEDF6400910C96 /* APICall.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -356,6 +362,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF4002A325AE9C6000F51E07 /* AppDelegate.swift in Sources */,
+				BF33220925AEDE8500910C96 /* Injection.swift in Sources */,
+				BF33220D25AEDF6400910C96 /* APICall.swift in Sources */,
 				BF4002A525AE9C6000F51E07 /* SceneDelegate.swift in Sources */,
 				BF4002A725AE9C6000F51E07 /* ContentView.swift in Sources */,
 			);
