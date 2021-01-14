@@ -84,26 +84,27 @@ extension GameView {
     
     var content: some View {
         VStack(alignment: .leading, spacing: 8) {
-            if presenter.item?.tags.isEmpty == false {
-                Text("Tags")
-                    .font(.headline)
-                
-                ForEach(self.presenter.item?.tags ?? [], id: \.id) { tag in
-                    ZStack {
-                        Text(tag.name)
-                            .font(.system(size: 16))
-                    }
-                }
-            }
+           
+            Text(self.presenter.item?.desc ?? "Failed to load description")
+                .font(.system(size: 12))
             
             Divider()
                 .padding(.vertical)
             
-            Text("Tags :")
-                .font(.headline)
-            
-            Text(self.presenter.item?.desc ?? "")
-                .font(.system(size: 16))
+            if presenter.item?.tags.isEmpty == false {
+                Text("Tags")
+                    .font(.headline)
+                
+                ForEach(
+                    self.presenter.item?.tags ?? [],
+                    id: \.id)
+                { tag in
+                    ZStack {
+                        Text(tag.name)
+                            .font(.system(size: 12))
+                    }
+                }
+            }
         }.padding(.top)
     }
 }

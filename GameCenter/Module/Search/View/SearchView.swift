@@ -26,7 +26,7 @@ struct SearchView: View {
                 } else if presenter.keyword.isEmpty {
                     emptyTitle
                 } else if presenter.list.isEmpty {
-                    emptyMeals
+                    emptyGames
                 } else if presenter.isError {
                     errorIndicator
                 } else {
@@ -63,7 +63,7 @@ extension SearchView {
     
     var errorIndicator: some View {
         CustomEmptyView(
-            image: "No Favorite",
+            image: "Not Found",
             title: presenter.errorMessage
         ).offset(y: 80)
     }
@@ -71,12 +71,12 @@ extension SearchView {
     var emptyTitle: some View {
         CustomEmptyView(
             image: "No Favorite",
-            title: "Come on, find your favorite food!"
+            title: "Come on, find your game lads!"
         ).offset(y: 50)
     }
-    var emptyMeals: some View {
+    var emptyGames: some View {
         CustomEmptyView(
-            image: "No Favorite",
+            image: "Not Found",
             title: "Data not found"
         ).offset(y: 80)
     }

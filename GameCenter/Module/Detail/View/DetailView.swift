@@ -61,7 +61,7 @@ extension DetailView {
         CustomEmptyView(
             image: "Not Found",
             title: presenter.errorMessage
-        ).offset(y:80)
+        ).offset(y: 80)
     }
     
     var imageGenre: some View {

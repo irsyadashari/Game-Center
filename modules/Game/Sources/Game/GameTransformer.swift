@@ -38,7 +38,7 @@ where
         gameEntity.rating = response.rating ?? 0.0
         gameEntity.desc = response.desc ?? "Unknown"
         gameEntity.tags = tags
-        
+     
         if let genre = response.genres?.first?.name {
             gameEntity.genre = genre
         } else {
