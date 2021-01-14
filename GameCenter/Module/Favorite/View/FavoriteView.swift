@@ -47,14 +47,14 @@ extension FavoriteView {
     
     var errorIndicator: some View {
         CustomEmptyView(
-            image: "Error retrieving your fave game",
+            image: "No Favorite",
             title: presenter.errorMessage
         ).offset(y: 80)
     }
     
     var emptyFavorites: some View {
         CustomEmptyView(
-            image: "No Favorite Found",
+            image: "No Favorite",
             title: "Shoot some of your fave game first lads!"
         ).offset(y: 80)
     }

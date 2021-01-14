@@ -45,7 +45,7 @@ extension HomeView {
     
     var emptyGenres: some View {
         CustomEmptyView(
-            image: "Not Favorire",
+            image: "No Favorite",
             title: "The genres has fallen into an abyss :'("
         ).offset(y: 80)
     }
