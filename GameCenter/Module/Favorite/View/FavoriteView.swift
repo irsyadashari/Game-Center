@@ -56,7 +56,7 @@ extension FavoriteView {
         CustomEmptyView(
             image: "No Favorite",
             title: "Shoot some of your fave game first lads!"
-        ).offset(y: 80)
+        )
     }
     
     var content: some View {

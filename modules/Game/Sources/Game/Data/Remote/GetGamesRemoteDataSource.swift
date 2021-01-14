@@ -26,7 +26,7 @@ public struct GetGamesRemoteDataSource : DataSource {
         
         return Future<[GameResponse], Error> { completion in
             
-            guard let request = request else { return completion(.failure(URLError.invalidRequest)) }
+//            guard let request = request else { return completion(.failure(URLError.invalidRequest)) }
             
             if let url = URL(string: _endpoint) {
                 AF.request(url)
