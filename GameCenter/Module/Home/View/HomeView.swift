@@ -45,7 +45,7 @@ extension HomeView {
     
     var emptyGenres: some View {
         CustomEmptyView(
-            image: "Not Favorire",
+            image: "No Favorite",
             title: "The genres has fallen into an abyss :'("
         ).offset(y: 80)
     }
@@ -70,7 +70,7 @@ extension HomeView {
         for genre: GenreModel,
         @ViewBuilder content: () -> Content
     ) -> some View {
-        
+         
         NavigationLink(
             destination: HomeRouter().makeDetailView(for: genre)
         ) { content() }
