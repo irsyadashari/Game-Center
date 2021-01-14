@@ -70,7 +70,7 @@ extension HomeView {
         for genre: GenreModel,
         @ViewBuilder content: () -> Content
     ) -> some View {
-        
+         
         NavigationLink(
             destination: HomeRouter().makeDetailView(for: genre)
         ) { content() }
