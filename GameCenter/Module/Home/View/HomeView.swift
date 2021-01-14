@@ -19,12 +19,23 @@ struct HomeView: View {
         ZStack {
             
             if presenter.isLoading {
-                
+                loadingIndicator
+            } else if presenter.isError {
+                errorIndicator
+            } else if presenter.list.isEmpty {
+                emptyGenres
+            } else {
+                content
             }
-            
-        }
+        }.onAppear {
+            if self.presenter.list.count == 0 {
+                self.presenter.getList(request: nil)
+            }
+        }.navigationBarTitle(
+            Text("Game Center"),
+            displayMode: .automatic
+        )
     }
-    
 }
 
 extension HomeView {
