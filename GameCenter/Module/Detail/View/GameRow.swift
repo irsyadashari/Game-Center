@@ -10,6 +10,7 @@ import SDWebImageSwiftUI
 import Game
 
 struct GameRow: View {
+    
     var game: GameModel
     
     var body: some View {

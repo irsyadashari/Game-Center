@@ -22,9 +22,24 @@ struct DetailView: View {
     var body: some View {
         ZStack {
             if presenter.isLoading {
-                
+                loadingIndicator
+            } else if presenter.isLoading {
+                errorIndicator
+            } else {
+                ScrollView(.vertical) {
+                    VStack {
+                        imageGenre
+                        spacer
+                        content
+                        spacer
+                    }.padding()
+                }
             }
-        }
+        }.onAppear {
+            if self.presenter.list.count == 0 {
+                self.presenter.getList(request: genre.name)
+            }
+        }.navigationBarTitle(Text(genre.name), displayMode: .large)
     }
     
 }
