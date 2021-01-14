@@ -39,6 +39,12 @@ where
         gameEntity.desc = response.desc ?? "Unknown"
         gameEntity.tags = tags
         
+        if let genre = response.genres?.first?.name {
+            gameEntity.genre = genre
+        } else {
+            gameEntity.genre = "Unknown"
+        }
+        
         return gameEntity
     }
     
@@ -52,6 +58,7 @@ where
             released: entity.released,
             rating: entity.rating,
             desc: entity.description,
+            genre: entity.genre,
             tags: tags,
             favorite: entity.favorite
         )

@@ -27,7 +27,7 @@ public struct GetGamesLocaleDataSource : LocaleDataSource {
             guard let request  = request else { return completion(.failure(DatabaseError.requestFailed)) }
             let games: Results<GameEntity> = {
                 _realm.objects(GameEntity.self)
-                    .filter("name = '\(request)'")
+                    .filter("genre = '\(request)'")
                     .sorted(byKeyPath: "name", ascending: true)
             }()
             

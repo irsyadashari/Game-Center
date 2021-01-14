@@ -25,6 +25,7 @@ public struct GameResponse: Decodable {
     let rating: Double?
     let desc: String?
     let tags: [Tag]?
+    let genres: [GenreResponse]?
     
     private enum CodingKeys: String, CodingKey {
         
@@ -35,11 +36,17 @@ public struct GameResponse: Decodable {
         case rating
         case desc = "description"
         case tags
+        case genres
     }
     
 }
 
 public struct Tag: Codable {
+    public let id: Int
+    public let name: String
+}
+
+public struct GenreResponse: Codable {
     public let id: Int
     public let name: String
 }

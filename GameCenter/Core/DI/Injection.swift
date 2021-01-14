@@ -31,7 +31,7 @@ final class Injection: NSObject {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let locale = GetGamesLocaleDataSource(realm: appDelegate.realm)
-        let remote = GetGamesRemoteDataSource(endpoint: Endpoints.Gets.genres.url)
+        let remote = GetGamesRemoteDataSource(endpoint: Endpoints.Gets.games.url)
         
         let tagMapper = TagTransformer()
         let gameMapper = GameTransformer(tagMapper: tagMapper)
@@ -47,7 +47,7 @@ final class Injection: NSObject {
     
     func provideSearch<U: UseCase>() -> U where U.Request == String, U.Response == [GameModel] {
         
-        let remote = GetGamesRemoteDataSource(endpoint: Endpoints.Gets.genres.url)
+        let remote = GetGamesRemoteDataSource(endpoint: Endpoints.Gets.search.url)
         
         let tagMapper = TagTransformer()
         let gameMapper = GameTransformer(tagMapper: tagMapper)
