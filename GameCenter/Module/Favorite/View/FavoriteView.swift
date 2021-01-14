@@ -77,7 +77,7 @@ extension FavoriteView {
             }
         }
     }
-    
+     
     func linkBuilder<Content: View>(
         for game: GameModel,
         @ViewBuilder content: () -> Content
