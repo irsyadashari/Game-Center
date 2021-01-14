@@ -85,7 +85,14 @@ extension GameView {
     var content: some View {
         VStack(alignment: .leading, spacing: 8) {
            
-            Text(self.presenter.item?.desc ?? "Failed to load description")
+            Text(
+               self.presenter
+                .item?
+                .desc
+                .replacingOccurrences(of: "<[^>]+>", with: "",
+                                      options: String.CompareOptions.regularExpression,
+                                      range: nil)
+                ?? "Failed to load description")
                 .font(.system(size: 12))
             
             Divider()

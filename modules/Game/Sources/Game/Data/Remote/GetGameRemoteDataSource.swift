@@ -31,12 +31,22 @@ public struct GetGameRemoteDataSource : DataSource {
             if let url = URL(string: _endpoint + request) {
                 AF.request(url)
                     .validate()
-                    .responseDecodable(of: GamesResponse.self) { response in
-                        print("responna: \(response.value?.games[0])")
+                    .responseDecodable(of: GameResponse.self) { response in
+//                        print("responna: \(response.value?.games[0])")
                         switch response.result {
                             case .success(let value):
-                                print("responna: \(value.games[0])")
-                                completion(.success(value.games[0]))
+                                let game = response.value
+                                print("responna: \(game?.desc)")
+                                let gameResponse = GameResponse(
+                                    id: Int(game?.id ?? 0),
+                                    name: game?.name,
+                                    image: game?.image,
+                                    released: game?.released,
+                                    rating: game?.rating,
+                                    desc: game?.desc,
+                                    tags: game?.tags,
+                                    genres: game?.genres)
+                                completion(.success(gameResponse))
                             case .failure:
                                 completion(.failure(URLError.invalidResponse))
                         }

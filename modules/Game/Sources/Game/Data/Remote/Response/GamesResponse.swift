@@ -38,7 +38,6 @@ public struct GameResponse: Decodable {
         case tags
         case genres
     }
-    
 }
 
 public struct Tag: Codable {

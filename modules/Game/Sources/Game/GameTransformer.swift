@@ -38,6 +38,7 @@ where
         gameEntity.rating = response.rating ?? 0.0
         gameEntity.desc = response.desc ?? "Unknown"
         gameEntity.tags = tags
+        gameEntity.favorite = false
      
         if let genre = response.genres?.first?.name {
             gameEntity.genre = genre
@@ -57,7 +58,7 @@ where
             image: entity.image,
             released: entity.released,
             rating: entity.rating,
-            desc: entity.description,
+            desc: entity.desc,
             genre: entity.genre,
             tags: tags,
             favorite: entity.favorite
