@@ -31,8 +31,8 @@ enum Endpoints {
             switch self {
                 case .genres: return "\(API.baseUrl)/genres"
                 case .games: return "\(API.baseUrl)/games"
-                case .game: return "\(API.baseUrl)/games"
-                case .search: return "\(API.baseUrl)?search=" 
+                case .game: return "\(API.baseUrl)/games/"
+                case .search: return "\(API.baseUrl)?search="
             }
         }
     }

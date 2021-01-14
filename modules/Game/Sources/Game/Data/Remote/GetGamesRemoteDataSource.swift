@@ -28,7 +28,7 @@ public struct GetGamesRemoteDataSource : DataSource {
             
             guard let request = request else { return completion(.failure(URLError.invalidRequest)) }
             
-            if let url = URL(string: _endpoint + request) {
+            if let url = URL(string: _endpoint) {
                 AF.request(url)
                     .validate()
                     .responseDecodable(of: GamesResponse.self) { response in
