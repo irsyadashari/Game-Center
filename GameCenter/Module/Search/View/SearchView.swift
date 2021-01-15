@@ -15,12 +15,17 @@ struct SearchView: View {
     
     var body: some View {
         VStack {
+            
             SearchBar(
                 text: $presenter.keyword,
                 onSearchButtonClicked: presenter.search
-            )
+            ).foregroundColor(.black)
             
             ZStack {
+                
+                Color.black
+                    .edgesIgnoringSafeArea(.all)
+                
                 if presenter.isLoading {
                     loadingIndicator
                 } else if presenter.keyword.isEmpty {

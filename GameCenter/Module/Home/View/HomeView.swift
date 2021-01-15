@@ -17,6 +17,8 @@ struct HomeView: View {
     var body: some View {
         
         ZStack {
+            Color.black
+                .edgesIgnoringSafeArea(.all)
             
             if presenter.isLoading {
                 loadingIndicator
@@ -32,7 +34,7 @@ struct HomeView: View {
                 self.presenter.getList(request: nil)
             }
         }.navigationBarTitle(
-            Text("Game Center"),
+            Text("Game Center App"),
             displayMode: .automatic
         )
     }

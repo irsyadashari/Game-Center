@@ -11,7 +11,8 @@ struct SearchBar: UIViewRepresentable {
     
     @Binding var text: String
     var onSearchButtonClicked: (() -> Void)?
-    
+
+
     class Coordinator: NSObject, UISearchBarDelegate {
         
         let control: SearchBar
@@ -41,8 +42,12 @@ struct SearchBar: UIViewRepresentable {
     func makeUIView(
         context: UIViewRepresentableContext<SearchBar>
     ) -> UISearchBar {
-        let searchBar = UISearchBar(frame: .zero)
+        let searchBar = UISearchBar(frame:.zero)
         searchBar.delegate = context.coordinator
+        searchBar.barTintColor = UIColor.black
+        searchBar.tintColor = UIColor.white
+//        searchBar.isTranslucent = true
+//        searchBar.barStyle = .black
         return searchBar
     }
     

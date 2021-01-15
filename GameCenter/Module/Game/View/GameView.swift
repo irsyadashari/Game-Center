@@ -79,6 +79,7 @@ extension GameView {
             .scaledToFill()
             .frame(width: UIScreen.main.bounds.width - 32, height: 250.0, alignment: .center)
             .cornerRadius(30)
+            .edgesIgnoringSafeArea(.all)
         
     }
     
@@ -102,13 +103,24 @@ extension GameView {
                 Text("Tags")
                     .font(.headline)
                 
-                ForEach(
-                    self.presenter.item?.tags ?? [],
-                    id: \.id)
-                { tag in
-                    ZStack {
-                        Text(tag.name)
-                            .font(.system(size: 12))
+                let layout = [
+                    GridItem(.adaptive(minimum: 100))
+                ]
+                
+                LazyVGrid(columns: layout, spacing: 24) {
+                    ForEach(
+                        self.presenter.item?.tags ?? [],
+                        id: \.id)
+                    { tag in
+                        ZStack {
+                            Capsule()
+                                .fill(Color.yellow)
+                                .frame(height: 50)
+                                .cornerRadius(4)
+                            Text(tag.name)
+                                .font(.system(size: 12))
+                                .foregroundColor(.black)
+                        }
                     }
                 }
             }
