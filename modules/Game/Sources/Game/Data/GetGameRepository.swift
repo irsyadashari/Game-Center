@@ -44,7 +44,7 @@ where
         
         return _localeDataSource.get(id: Int(request) ?? 0)
             .flatMap { result -> AnyPublisher<GameModel, Error> in
-                if result.desc == "Unknown" {
+                if result.desc == "Unknown" || result.genre == "Unknown" {
                     return _remoteDataSource.execute(request: request)
                         .map { _mapper.transformResponseToEntity(request: request, response: $0) }
                         .catch { _ in _localeDataSource.get(id: Int(request) ?? 0) }
