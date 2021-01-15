@@ -49,7 +49,6 @@ struct SearchView: View {
                     }
                 }
             }
-            Spacer()
         }.navigationBarTitle(
             Text("Search Games"),
             displayMode: .automatic

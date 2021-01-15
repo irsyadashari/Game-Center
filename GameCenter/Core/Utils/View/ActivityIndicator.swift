@@ -12,7 +12,10 @@ struct ActivityIndicator: UIViewRepresentable {
     func makeUIView(
         context: UIViewRepresentableContext<ActivityIndicator>
     ) -> UIActivityIndicatorView {
-        return UIActivityIndicatorView(style: .large)
+        let loadingBar = UIActivityIndicatorView(style: .large)
+        loadingBar.tintColor = .white
+        loadingBar.color = .white
+        return loadingBar
     }
     
     func updateUIView(

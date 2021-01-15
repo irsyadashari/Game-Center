@@ -21,6 +21,10 @@ struct DetailView: View {
     
     var body: some View {
         ZStack {
+            
+            Color.black
+                .edgesIgnoringSafeArea(.all)
+            
             if presenter.isLoading {
                 loadingIndicator
             } else if presenter.isLoading {

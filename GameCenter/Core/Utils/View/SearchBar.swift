@@ -45,9 +45,11 @@ struct SearchBar: UIViewRepresentable {
         let searchBar = UISearchBar(frame:.zero)
         searchBar.delegate = context.coordinator
         searchBar.barTintColor = UIColor.black
-        searchBar.tintColor = UIColor.white
-//        searchBar.isTranslucent = true
+        searchBar.tintColor = UIColor.black
+        searchBar.isTranslucent = true
 //        searchBar.barStyle = .black
+        searchBar.placeholder = "Red Dead Redemption..."
+        searchBar.searchTextField.textColor = .white
         return searchBar
     }
     

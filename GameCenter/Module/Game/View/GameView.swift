@@ -26,6 +26,9 @@ struct GameView: View {
     var body: some View {
         ZStack {
             
+            Color.black
+                .edgesIgnoringSafeArea(.all)
+            
             if presenter.isLoading {
                 loadingIndicator
             } else if presenter.isError {
@@ -90,11 +93,9 @@ extension GameView {
                self.presenter
                 .item?
                 .desc
-                .replacingOccurrences(of: "<[^>]+>", with: "",
-                                      options: String.CompareOptions.regularExpression,
-                                      range: nil)
-                ?? "Failed to load description")
+                .parse() ?? "Failed to load description")
                 .font(.system(size: 12))
+                .foregroundColor(.white)
             
             Divider()
                 .padding(.vertical)
@@ -102,6 +103,7 @@ extension GameView {
             if presenter.item?.tags.isEmpty == false {
                 Text("Tags")
                     .font(.headline)
+                    .foregroundColor(.white)
                 
                 let layout = [
                     GridItem(.adaptive(minimum: 100))

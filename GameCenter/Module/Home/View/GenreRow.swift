@@ -42,7 +42,9 @@ extension GenreRow {
             .font(.title)
             .bold()
             .foregroundColor(.white)
-            .frame(width: UIScreen.main.bounds.width - 32, alignment: .leading)
+            .frame(width: UIScreen.main.bounds.width - 32, alignment: .trailing)
+            .rotationEffect(Angle(degrees: -12))
+            .offset(y: -16)
     }
     
 }

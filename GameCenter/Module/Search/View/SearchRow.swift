@@ -23,8 +23,6 @@ struct SearchRow: View {
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
             
-            Divider()
-                .padding(.leading)
         }
     }
     
@@ -37,7 +35,7 @@ extension SearchRow {
             .resizable()
             .indicator(.activity)
             .transition(.fade(duration: 0.5))
-            .scaledToFit()
+            .scaledToFill()
             .frame(width: 120)
             .cornerRadius(20)
     }
@@ -47,14 +45,17 @@ extension SearchRow {
             Text(game.name)
                 .font(.system(size: 20, weight: .semibold, design: .rounded))
                 .lineLimit(3)
+                .foregroundColor(.white)
             
-            Text("Release Date : \(game.released)")
-                .font(.system(size: 16))
+            Text("Released : \(game.released.formatDate())")
+                .font(.system(size: 12))
                 .lineLimit(2)
+                .foregroundColor(.white)
             
-            Text(game.desc)
-                .font(.system(size: 16))
+            Text("Genre : \(game.genre)")
+                .font(.system(size: 12))
                 .lineLimit(2)
+                .foregroundColor(.white)
             
         }.padding(
             EdgeInsets(
