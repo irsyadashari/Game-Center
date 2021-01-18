@@ -16,7 +16,7 @@ struct SearchView: View {
     var body: some View {
         
         ZStack {
-            Color.black
+            Color.baseColor
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
@@ -56,7 +56,8 @@ struct SearchView: View {
                 
                 Spacer()
                 
-            }.navigationBarTitle(
+            }
+            .navigationBarTitle(
                 Text("Search Games"),
                 displayMode: .automatic
             )
@@ -69,6 +70,7 @@ extension SearchView {
     var loadingIndicator: some View {
         VStack {
             Text("Loading...")
+                .foregroundColor(.white)
             ActivityIndicator()
         }
     }
@@ -97,7 +99,6 @@ extension SearchView {
         for game: GameModel,
         @ViewBuilder content: () -> Content
     ) -> some View {
-        
         NavigationLink(
             destination: DetailRouter().makeGameView(for: game)
         ) { content() }

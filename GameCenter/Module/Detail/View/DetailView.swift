@@ -13,6 +13,8 @@ import Genre
 
 struct DetailView: View {
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @ObservedObject var presenter: GetListPresenter<String, GameModel, Interactor<String, [GameModel],
         GetGamesRepository<GetGamesLocaleDataSource, GetGamesRemoteDataSource,
         GamesTransformer<GameTransformer<TagTransformer>>>>>
@@ -22,7 +24,7 @@ struct DetailView: View {
     var body: some View {
         ZStack {
             
-            Color.black
+            Color.baseColor
                 .edgesIgnoringSafeArea(.all)
             
             if presenter.isLoading {
@@ -33,22 +35,45 @@ struct DetailView: View {
                 ScrollView(.vertical) {
                     VStack {
                         imageGenre
-                        spacer
+                        Divider()
+                            .padding()
                         content
-                        spacer
-                    }.padding()
+                    }.offset(y: -60)
                 }
             }
         }.onAppear {
             if self.presenter.list.count == 0 {
                 self.presenter.getList(request: genre.name)
             }
-        }.navigationBarTitle(Text(genre.name), displayMode: .large)
+        }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .overlay(
+            VStack {
+                HStack {
+                    btnBack
+                        .padding(8)
+                    spacer
+                }
+                spacer
+            }
+        )
     }
     
 }
 
 extension DetailView {
+    
+    var btnBack : some View { Button(action: {
+        self.presentationMode.wrappedValue.dismiss()
+    }) {
+            Image("iconsBack") // set image here
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .foregroundColor(.white)
+                .frame(width: 30, height: 30)
+        }
+    }
     
     var spacer: some View {
         Spacer()
@@ -57,6 +82,7 @@ extension DetailView {
     var loadingIndicator: some View {
         VStack {
             Text("Loading your genres :D")
+                .foregroundColor(.white)
             ActivityIndicator()
         }
     }
@@ -73,37 +99,48 @@ extension DetailView {
             .resizable()
             .indicator(.activity)
             .transition(.fade(duration: 0.5))
-            .scaledToFit()
-            .frame(width: 250.0, height: 250.0, alignment: .center)
-    }
-    
-    var gamesHorizontal: some View {
-        ScrollView(.horizontal) {
-            HStack {
-                ForEach(self.presenter.list, id: \.id) { game in
-                    self.linkBuilder(for: game) {
-                        GameRow(game: game)
-                            .frame(width: 150, height: 150)
-                    }.buttonStyle(PlainButtonStyle())
-                }
-            }
-        }
+            .scaledToFill()
+            .frame(width: UIScreen.main.bounds.width,
+                   height: 300,
+                   alignment: .center)
+            .edgesIgnoringSafeArea(.top)
+            
     }
     
     func title(_ title: String) -> some View {
-        return Text(genre.name)
+        return Text(title)
+            .foregroundColor(.white)
             .font(.headline)
     }
     
     var content: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .center, spacing: 0) {
             
             if !presenter.list.isEmpty {
                 title("Games with \(genre.name) genre")
-                    .padding(.bottom)
-                gamesHorizontal
+                    .padding(
+                        EdgeInsets(
+                            top: 0,
+                            leading: 0,
+                            bottom: 24,
+                            trailing: 0))
+                gamesVertical
             }
-            spacer
+        }
+    }
+    
+    var gamesVertical: some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            
+            ForEach(self.presenter.list,
+                    id: \.id
+            ) { game in
+                ZStack {
+                    self.linkBuilder(for: game) {
+                        GameRow(game: game)
+                    }.buttonStyle(PlainButtonStyle())
+                }.padding(8)
+            }
         }
     }
     

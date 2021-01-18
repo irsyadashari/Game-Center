@@ -29,23 +29,24 @@ public struct GetGameRemoteDataSource : DataSource {
             guard let request = request else { return completion(.failure(URLError.invalidRequest) )}
             print("urlna game: \(_endpoint + request.lowercased())")
             if let url = URL(string: _endpoint + request) {
-                AF.request(url)
+                var urlRequest = URLRequest(url: url)
+                urlRequest.timeoutInterval = 300
+                AF.request(urlRequest)
                     .validate()
                     .responseDecodable(of: GameResponse.self) { response in
 //                        print("responna: \(response.value?.games[0])")
                         switch response.result {
-                            case .success(let value):
-                                let game = response.value
-                                print("responna: \(game?.desc)")
+                            case .success(let game):
+                               
                                 let gameResponse = GameResponse(
-                                    id: Int(game?.id ?? 0),
-                                    name: game?.name,
-                                    image: game?.image,
-                                    released: game?.released,
-                                    rating: game?.rating,
-                                    desc: game?.desc,
-                                    tags: game?.tags,
-                                    genres: game?.genres)
+                                    id: Int(game.id ?? 0),
+                                    name: game.name,
+                                    image: game.image,
+                                    released: game.released,
+                                    rating: game.rating,
+                                    desc: game.desc,
+                                    tags: game.tags,
+                                    genres: game.genres)
                                 completion(.success(gameResponse))
                             case .failure:
                                 completion(.failure(URLError.invalidResponse))

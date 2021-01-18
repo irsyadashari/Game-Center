@@ -24,7 +24,9 @@ public struct GetGenresRemoteDataSource : DataSource {
     public func execute(request: Any?) -> AnyPublisher<[GenreResponse], Error> {
         return Future<[GenreResponse], Error> { completion in
             if let url = URL(string: _endpoint) {
-                AF.request(url)
+                var urlRequest = URLRequest(url: url)
+                urlRequest.timeoutInterval = 300
+                AF.request(urlRequest)
                     .validate()
                     .responseDecodable(of: GenresResponse.self) { response in
                         switch response.result {

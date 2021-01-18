@@ -27,7 +27,7 @@ extension String {
             return "\(datee) \(getMonthName(monthOrder: String(month))) \(year)"
             
         } else {
-           return "~"
+           return "N/A"
         }
         
     }

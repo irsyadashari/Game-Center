@@ -34,12 +34,13 @@ extension GenreRow {
                    height: 240,
                    alignment: .center)
             .mask(Jajargenjang(depth: 80))
+            .offset(y: -12)
     }
     
     var content: some View {
         
         Text(genre.name)
-            .font(.title)
+            .font(.system(size: 40, weight: .semibold, design: .serif))
             .bold()
             .foregroundColor(.white)
             .frame(width: UIScreen.main.bounds.width - 32, alignment: .trailing)

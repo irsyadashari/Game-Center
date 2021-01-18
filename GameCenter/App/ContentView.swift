@@ -55,14 +55,14 @@ struct ContentView: View {
 //MARK: - basic view appearance
 extension ContentView {
     func setupStyleBar() {
-        UITabBar.appearance().barTintColor = .black
+        UITabBar.appearance().barTintColor = UIColor(.baseColor)
         UITabBar.appearance().tintColor = .yellow
         UITabBar.appearance().layer.borderColor = UIColor.clear.cgColor
         UITabBar.appearance().clipsToBounds = true
         UITabBar.appearance().isTranslucent = true
         
-        navStyle.configureWithOpaqueBackground()
-        navStyle.backgroundColor = .black
+        navStyle.configureWithTransparentBackground()
+        navStyle.backgroundColor = UIColor(.baseColor)
         navStyle.titleTextAttributes = [.foregroundColor: UIColor.white]
         navStyle.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().standardAppearance = navStyle

@@ -18,7 +18,7 @@ struct FavoriteView: View {
     var body: some View {
         
         ZStack {
-            Color.black
+            Color.baseColor
                 .edgesIgnoringSafeArea(.all)
             
             if presenter.isLoading {
@@ -32,7 +32,8 @@ struct FavoriteView: View {
             }
         }.onAppear {
             self.presenter.getList(request: nil)
-        }.navigationBarTitle(
+        }
+        .navigationBarTitle(
             Text("Favorite Games"),
             displayMode: .automatic
         )
