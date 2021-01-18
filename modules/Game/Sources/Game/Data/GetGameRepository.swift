@@ -44,8 +44,11 @@ where
         
         return _localeDataSource.get(id: Int(request) ?? 0)
             .flatMap { result -> AnyPublisher<GameModel, Error> in
-                if result.name == "Unknown"
+                
+//                print("resultna game repo : \(result.description)")
+                if result.desc == "" || result.desc == "Unknown"
                 {
+                    print("ambil dari remote")
                     return _remoteDataSource.execute(request: request)
                         .map { _mapper.transformResponseToEntity(request: request, response: $0) }
                         .catch { _ in _localeDataSource.get(id: Int(request) ?? 0) }
@@ -55,6 +58,7 @@ where
                             .map { _mapper.transformEntityToDomain(entity: $0) }
                         }.eraseToAnyPublisher()
                 } else {
+                    print("ambil dari locale")
                     return _localeDataSource.get(id: Int(request) ?? 0)
                         .map { _mapper.transformEntityToDomain(entity: $0) }
                         .eraseToAnyPublisher()

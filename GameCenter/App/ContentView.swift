@@ -48,6 +48,13 @@ struct ContentView: View {
             }.tabItem {
                 TabItem(imageName: "heart", title: "Favorite")
             }
+            
+            NavigationView {
+               ProfileView()
+            }.tabItem {
+                TabItem(imageName: "person", title: "Profile")
+            }
+            
         }.accentColor(.white)
     }
 }

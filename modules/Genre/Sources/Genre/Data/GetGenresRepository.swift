@@ -1,9 +1,6 @@
-//
 //  GetGenresRepository.swift
-//  
 //
 //  Created by Irsyad Ashari on 13/01/21.
-//
 
 import Core
 import Combine

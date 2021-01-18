@@ -27,8 +27,8 @@ public struct GetGameRemoteDataSource : DataSource {
         return Future<GameResponse, Error> { completion in
             
             guard let request = request else { return completion(.failure(URLError.invalidRequest) )}
-            print("urlna game: \(_endpoint + request.lowercased())")
             if let url = URL(string: _endpoint + request) {
+                print("urlna game : \(url)")
                 var urlRequest = URLRequest(url: url)
                 urlRequest.timeoutInterval = 300
                 AF.request(urlRequest)

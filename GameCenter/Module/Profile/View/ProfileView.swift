@@ -50,7 +50,7 @@ extension ProfileView {
     
     var name: some View {
         Text("Muh Irsyad Ashari")
-            .font(.system(size: 24))
+            .font(.system(size: 36))
             .frame(width: UIScreen.main.bounds.width - 32,
                    alignment: .center)
             .foregroundColor(.white)
@@ -75,7 +75,7 @@ extension ProfileView {
             .frame(width: UIScreen.main.bounds.width - 100,
                    height:  80,
                    alignment: .center)
-            .font(.system(size: 12))
+            .font(.system(size: 16))
             .foregroundColor(.white)
     }
     

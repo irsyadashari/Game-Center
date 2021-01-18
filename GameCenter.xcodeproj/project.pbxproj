@@ -46,6 +46,7 @@
 		BF7E0A5025AEB82500B73F64 /* Genre in Frameworks */ = {isa = PBXBuildFile; productRef = BF7E0A4F25AEB82500B73F64 /* Genre */; };
 		BFE0B7E625B5273D000458B0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE0B7E525B5273D000458B0 /* ProfileView.swift */; };
 		BFE0B7EA25B52C37000458B0 /* IconInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE0B7E925B52C37000458B0 /* IconInfo.swift */; };
+		BFE0B7ED25B566B3000458B0 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE0B7EC25B566B3000458B0 /* HostingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		BF4002EC25AEAD6E00F51E07 /* Genre */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Genre; path = modules/Genre; sourceTree = "<group>"; };
 		BFE0B7E525B5273D000458B0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		BFE0B7E925B52C37000458B0 /* IconInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInfo.swift; sourceTree = "<group>"; };
+		BFE0B7EC25B566B3000458B0 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 				BF4002A225AE9C6000F51E07 /* AppDelegate.swift */,
 				BF4002A625AE9C6000F51E07 /* ContentView.swift */,
 				BF4002A425AE9C6000F51E07 /* SceneDelegate.swift */,
+				BFE0B7EC25B566B3000458B0 /* HostingController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				BF33223F25B015C400910C96 /* SearchView.swift in Sources */,
 				BF33222925B0043C00910C96 /* GenreRow.swift in Sources */,
 				BFE0B7EA25B52C37000458B0 /* IconInfo.swift in Sources */,
+				BFE0B7ED25B566B3000458B0 /* HostingController.swift in Sources */,
 				BF33221325AFE3A800910C96 /* DetailView.swift in Sources */,
 				BF33225425B1A59000910C96 /* Color+Ext.swift in Sources */,
 				BF33221625AFE4DE00910C96 /* ActivityIndicator.swift in Sources */,

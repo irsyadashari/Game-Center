@@ -30,10 +30,10 @@ public struct GetGenresRemoteDataSource : DataSource {
                     .validate()
                     .responseDecodable(of: GenresResponse.self) { response in
                         switch response.result {
-                            case .success(let value):
-                                completion(.success(value.genres))
-                            case .failure:
-                                completion(.failure(URLError.invalidResponse))
+                        case .success(let value):
+                            completion(.success(value.genres))
+                        case .failure:
+                            completion(.failure(URLError.invalidResponse))
                         }
                     }
             }

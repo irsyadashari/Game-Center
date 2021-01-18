@@ -42,7 +42,7 @@ where
     public func execute(request: String?) -> AnyPublisher<[GameModel], Error> {
         return _localeDataSource.list(request: request)
             .flatMap { result -> AnyPublisher<[GameModel], Error> in
-                if result.isEmpty {
+                if result.isEmpty || result.count < 5 {
                     return _remoteDataSource.execute(request: request)
                         .map { _mapper.transformResponseToEntity(request: request, response: $0) }
                         .catch { _ in _localeDataSource.list(request: request) }

@@ -74,6 +74,7 @@ extension FavoriteView {
                 ZStack {
                     self.linkBuilder(for: game) {
                         FavoriteRow(game: game)
+                            .padding()
                     }.buttonStyle(PlainButtonStyle())
                 }
                 

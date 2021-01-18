@@ -42,11 +42,12 @@ struct GameView: View {
                         content
                     }
                     .padding()
-                    .offset(y: -60)
+                    .offset(y: -60) // to make the image all the way to top of the head
                 }
             }
-        }.onAppear {
+        }.onAppear() {
             self.presenter.getGame(request: String(game.id))
+            print("ini item gamena: \(self.presenter.item?.desc ?? "nulki descnya")")
         }.alert(isPresented: $showingAlert) {
             Alert(
                 title: Text("Ow Ow"),
@@ -104,7 +105,7 @@ extension GameView {
     
     var imageGame: some View {
         
-        WebImage(url: URL(string: self.presenter.item?.image ?? ""))
+        WebImage(url: URL(string: self.game.image))
             .resizable()
             .indicator(.activity)
             .transition(.fade(duration: 0.5))
@@ -125,7 +126,7 @@ extension GameView {
             HStack {
                 spacer
                 
-                if presenter.item?.favorite == true {
+                if self.presenter.item?.favorite == true {
                     CustomIcon(
                         imageName: "heart.fill"
                     ).onTapGesture { self.presenter.updateFavoriteGame(request: String(game.id))}
@@ -141,17 +142,16 @@ extension GameView {
     var ratingsAndTitle: some View {
         HStack (spacing: 2){
             Text(
-                self.presenter
-                    .item?
+                self.game
                     .name
-                    .parse() ?? "Unknown")
+                    .parse() )
                 .padding(.leading)
                 .font(.system(size: 40, weight: .semibold, design: .serif))
                 .foregroundColor(.white)
             
             
             CustomIcon(imageName: "star.fill", color: .yellow)
-            Text(String(self.presenter.item?.rating ?? 0.0))
+            Text(String(self.game.rating))
                 .font(.system(size: 24, weight: .semibold, design: .serif))
                 .foregroundColor(.white)
             
@@ -161,7 +161,7 @@ extension GameView {
     
     var releasedDates: some View {
         
-        Text("Released : \(self.presenter.item?.released.formatDate() ?? "N/A")")
+        Text("Released : \(self.game.released.formatDate())")
             .font(.system(size: 12))
             .foregroundColor(.white)
             .frame(width: UIScreen.main.bounds.width - 32, alignment: .leading)
@@ -175,7 +175,7 @@ extension GameView {
             self.presenter
                 .item?
                 .desc
-                .parse() ?? "Failed to load description")
+                .parse() ?? "failed to load description")
             .font(.system(size: 12))
             .foregroundColor(.white)
             .frame(width: UIScreen.main.bounds.width - 32, alignment: .leading)
@@ -185,8 +185,8 @@ extension GameView {
     
     var tags: some View {
         
-        ZStack {
-            if presenter.item?.tags.isEmpty == false {
+        VStack {
+            if game.tags.isEmpty == false {
                 Text("Tags")
                     .font(.headline)
                     .foregroundColor(.white)
@@ -199,7 +199,7 @@ extension GameView {
                 
                 LazyVGrid(columns: layout, spacing: 4) {
                     ForEach(
-                        self.presenter.item?.tags ?? [],
+                        self.game.tags,
                         id: \.id)
                     { tag in
                         ZStack {

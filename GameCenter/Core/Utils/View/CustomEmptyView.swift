@@ -17,7 +17,7 @@ struct CustomEmptyView: View {
                 .resizable()
                 .renderingMode(.original)
                 .scaledToFit()
-                .frame(width: 250)
+                .frame(width: 100, height: 100)
             
             Text(title)
                 .font(.system(.body, design: .rounded))

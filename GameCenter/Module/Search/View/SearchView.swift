@@ -84,7 +84,7 @@ extension SearchView {
     
     var emptyTitle: some View {
         CustomEmptyView(
-            image: "No Favorite",
+            image: "search",
             title: "Come on, find your game lads!"
         )
     }
