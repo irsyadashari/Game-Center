@@ -10,17 +10,13 @@ import Core
 import Game
 
 struct FavoriteView: View {
-    
     @ObservedObject var presenter: GetListPresenter<String, GameModel, Interactor<String, [GameModel],
         GetFavoriteGamesRepository<GetFavoriteGamesLocaleDataSource,
         GamesTransformer<GameTransformer<TagTransformer>>>>>
-    
     var body: some View {
-        
         ZStack {
             Color.baseColor
-                .edgesIgnoringSafeArea(.all)
-            
+                .edgesIgnoringSafeArea(.all) 
             if presenter.isLoading {
                 loadingIndicator
             } else if presenter.isError {
@@ -47,21 +43,18 @@ extension FavoriteView {
             ActivityIndicator()
         }
     }
-    
     var errorIndicator: some View {
         CustomEmptyView(
             image: "No Favorite",
             title: presenter.errorMessage
         ).offset(y: 80)
     }
-    
     var emptyFavorites: some View {
         CustomEmptyView(
             image: "No Favorite",
             title: "Shoot some of your fave game first lads!"
         )
     }
-    
     var content: some View {
         ScrollView(
             .vertical,
@@ -77,16 +70,13 @@ extension FavoriteView {
                             .padding()
                     }.buttonStyle(PlainButtonStyle())
                 }
-                
             }
         }
     }
-     
     func linkBuilder<Content: View>(
         for game: GameModel,
         @ViewBuilder content: () -> Content
     ) -> some View {
-        
         NavigationLink(
             destination: DetailRouter().makeGameView(for: game)
         ) { content() }

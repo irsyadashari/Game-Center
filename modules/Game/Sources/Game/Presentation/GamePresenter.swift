@@ -13,7 +13,7 @@ public class GamePresenter<GameUseCase: UseCase, FavoriteUseCase: UseCase>: Obse
 where
     GameUseCase.Request == String, GameUseCase.Response == GameModel,
     FavoriteUseCase.Request == String, FavoriteUseCase.Response == GameModel
-{
+ {
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -29,40 +29,37 @@ where
         _gameUseCase = gameUseCase
         _favoriteUseCase = favoriteUseCase
     }
-    
     public func getGame(request: GameUseCase.Request) {
         isLoading = true
         _gameUseCase.execute(request: request)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
-                    case .failure (let error):
-                        self.errorMessage = error.localizedDescription
-                        self.isError = true
-                        self.isLoading = false
-                    case .finished:
-                        self.isLoading = false
+                case .failure (let error):
+                    self.errorMessage = error.localizedDescription
+                    self.isError = true
+                    self.isLoading = false
+                case .finished:
+                    self.isLoading = false
                 }
             }, receiveValue: { item in
                 self.item = item
             })
             .store(in: &cancellables)
     }
-    
     public func updateFavoriteGame(request: FavoriteUseCase.Request) {
         _favoriteUseCase.execute(request: request)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
-                    case .failure:
-                        self.errorMessage = String(describing: completion)
-                    case .finished:
-                        self.isLoading = false
+                case .failure:
+                    self.errorMessage = String(describing: completion)
+                case .finished:
+                    self.isLoading = false
                 }
             }, receiveValue: { item in
                 self.item = item
             })
             .store(in: &cancellables)
     }
-    
 }

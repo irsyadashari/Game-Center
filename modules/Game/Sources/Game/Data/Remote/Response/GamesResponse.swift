@@ -26,7 +26,6 @@ public struct GameResponse: Decodable {
     let desc: String?
     let tags: [Tag]?
     let genres: [GenreResponse]?
-    
     private enum CodingKeys: String, CodingKey {
         
         case id
@@ -49,4 +48,3 @@ public struct GenreResponse: Codable {
     public let id: Int
     public let name: String
 }
-

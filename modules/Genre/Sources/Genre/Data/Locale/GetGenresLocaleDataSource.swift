@@ -29,10 +29,8 @@ public struct GetGenresLocaleDataSource: LocaleDataSource {
                     .sorted(byKeyPath: "name", ascending: true)
             }()
             completion(.success(genres.toArray(ofType: GenreEntity.self)))
-            
         }.eraseToAnyPublisher()
     }
-    
     public func add(entities: [GenreEntity]) -> AnyPublisher<Bool, Error> {
         return Future<Bool, Error> { completion in
             do {
@@ -45,16 +43,12 @@ public struct GetGenresLocaleDataSource: LocaleDataSource {
             } catch {
                 completion(.failure(DatabaseError.requestFailed))
             }
-            
         }.eraseToAnyPublisher()
     }
-    
     public func get(id: Int) -> AnyPublisher<GenreEntity, Error> {
         fatalError()
     }
-    
     public func update(id: Int, entity: GenreEntity) -> AnyPublisher<Bool, Error> {
         fatalError()
     }
 }
-

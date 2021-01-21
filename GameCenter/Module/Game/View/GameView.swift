@@ -15,22 +15,17 @@ struct GameView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var showingAlert = false
-    
     @ObservedObject var presenter: GamePresenter<
         Interactor<String, GameModel, GetGameRepository<GetGamesLocaleDataSource, GetGameRemoteDataSource,
                                                         GameTransformer<TagTransformer>>>,
         Interactor<String, GameModel, UpdateFavoriteGameRepository<GetFavoriteGamesLocaleDataSource,
                                                                    GameTransformer<TagTransformer>>>
     >
-    
     var game: GameModel
-    
     var body: some View {
         ZStack {
-            
             Color.baseColor
                 .edgesIgnoringSafeArea(.all)
-            
             if presenter.isLoading {
                 loadingIndicator
             } else if presenter.isError {
@@ -66,11 +61,9 @@ struct GameView: View {
             }
         )
     }
-    
 }
 
 extension GameView {
-    
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
     }) {
@@ -79,13 +72,11 @@ extension GameView {
             .aspectRatio(contentMode: .fill)
             .foregroundColor(.white)
             .frame(width: 30, height: 30)
+        }
     }
-    }
-    
     var spacer: some View {
         Spacer()
     }
-    
     var loadingIndicator: some View {
         VStack {
             Text("Memuat Game :D")
@@ -93,16 +84,13 @@ extension GameView {
             ActivityIndicator()
         }
     }
-    
     var errorIndicator: some View {
         CustomEmptyView(
             image: "Not Found",
             title: presenter.errorMessage
         ).offset(y: 40)
     }
-    
     var imageGame: some View {
-        
         WebImage(url: URL(string: self.game.image))
             .resizable()
             .indicator(.activity)
@@ -115,15 +103,12 @@ extension GameView {
             .overlay(
                 faveBtn
             )
-        
     }
-    
     var faveBtn: some View {
         VStack {
             spacer
             HStack {
                 spacer
-                
                 if self.presenter.item?.favorite == true {
                     CustomIcon(
                         imageName: "heart.fill"
@@ -136,9 +121,8 @@ extension GameView {
             }
         }
     }
-    
     var ratingsAndTitle: some View {
-        HStack (spacing: 2){
+        HStack(spacing: 2) {
             Text(
                 self.game
                     .name
@@ -146,29 +130,21 @@ extension GameView {
                 .padding(.leading)
                 .font(.system(size: 40, weight: .semibold, design: .serif))
                 .foregroundColor(.white)
-            
-            
             CustomIcon(imageName: "star.fill", color: .yellow)
             Text(String(self.game.rating))
                 .font(.system(size: 24, weight: .semibold, design: .serif))
                 .foregroundColor(.white)
-            
         }
         .frame(width: UIScreen.main.bounds.width - 32, alignment: .leading)
     }
-    
     var releasedDates: some View {
-        
         Text("Released : \(self.game.released.formatDate())")
             .font(.system(size: 12))
             .foregroundColor(.white)
             .frame(width: UIScreen.main.bounds.width - 32, alignment: .leading)
             .padding(.leading)
-        
     }
-    
     var gameDesc: some View {
-        
         Text(
             self.presenter
                 .item?
@@ -178,11 +154,8 @@ extension GameView {
             .foregroundColor(.white)
             .frame(width: UIScreen.main.bounds.width - 32, alignment: .leading)
             .padding(.leading)
-        
     }
-    
     var tags: some View {
-        
         VStack {
             if game.tags.isEmpty == false {
                 Text("Tags")
@@ -190,11 +163,9 @@ extension GameView {
                     .foregroundColor(.white)
                     .frame(width: UIScreen.main.bounds.width - 32, alignment: .leading)
                     .padding()
-                
                 let layout = [
                     GridItem(.adaptive(minimum: 100))
                 ]
-                
                 LazyVGrid(columns: layout, spacing: 4) {
                     ForEach(
                         self.game.tags,
@@ -222,17 +193,13 @@ extension GameView {
             }
         }
     }
-    
     var content: some View {
         VStack(alignment: .leading, spacing: 8) {
-            
             ratingsAndTitle
             releasedDates
             gameDesc
-            
             Divider()
                 .padding(.vertical)
-            
             tags
         }.padding(.top).onAppear(perform: {
             if self.presenter.item == nil {

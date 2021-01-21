@@ -33,12 +33,10 @@ where
         localeDataSource: GameLocaleDataSource,
         remoteDataSource: RemoteDataSource,
         mapper: Transformer) {
-        
         _localeDataSource = localeDataSource
         _remoteDataSource = remoteDataSource
         _mapper = mapper
     }
-    
     public func execute(request: String?) -> AnyPublisher<[GameModel], Error> {
         return _localeDataSource.list(request: request)
             .flatMap { result -> AnyPublisher<[GameModel], Error> in
@@ -59,4 +57,3 @@ where
             }.eraseToAnyPublisher()
     }
 }
-

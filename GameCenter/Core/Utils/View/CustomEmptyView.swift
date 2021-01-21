@@ -10,7 +10,6 @@ import SwiftUI
 struct CustomEmptyView: View {
     var image: String
     var title: String
-    
     var body: some View {
         VStack {
             Image(image)
@@ -18,7 +17,6 @@ struct CustomEmptyView: View {
                 .renderingMode(.original)
                 .scaledToFit()
                 .frame(width: 100, height: 100)
-            
             Text(title)
                 .font(.system(.body, design: .rounded))
                 .foregroundColor(.white)

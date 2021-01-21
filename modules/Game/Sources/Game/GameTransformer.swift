@@ -21,16 +21,13 @@ where
     public typealias Domain = GameModel
     
     private let _tagMapper: TagMapper
-    
     public init(tagMapper: TagMapper) {
         _tagMapper = tagMapper
     }
     
     public func transformResponseToEntity(request: String?, response: GameResponse) -> GameEntity {
         let tags = _tagMapper.transformResponseToEntity(request: request, response: response)
-        
         let gameEntity = GameEntity()
-        
         gameEntity.id = response.id ?? 0
         gameEntity.name = response.name ?? "Unknown"
         gameEntity.image = response.image ?? "Unknown"
@@ -39,19 +36,15 @@ where
         gameEntity.desc = response.desc ?? "Unknown"
         gameEntity.tags = tags
         gameEntity.favorite = false
-     
         if let genre = response.genres?.first?.name {
             gameEntity.genre = genre
         } else {
             gameEntity.genre = "Unknown"
         }
-        
         return gameEntity
     }
-    
     public func transformEntityToDomain(entity: GameEntity) -> GameModel {
         let tags = _tagMapper.transformEntityToDomain(entity: entity.tags)
-        
         return GameModel(
             id: entity.id,
             name: entity.name,
@@ -65,5 +58,3 @@ where
         )
     }
 }
-
-

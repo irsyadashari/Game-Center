@@ -11,9 +11,7 @@ import Core
 import Game
 
 class HomeRouter {
-    
     func makeDetailView(for genre: GenreModel) -> some View {
-        
         let useCase: Interactor<
             String,
             [GameModel],
@@ -22,10 +20,7 @@ class HomeRouter {
                 GetGamesRemoteDataSource,
                 GamesTransformer<GameTransformer<TagTransformer>>>
         > = Injection.init().provideGames()
-        
         let presenter = GetListPresenter(useCase: useCase)
-        
         return DetailView(presenter: presenter, genre: genre)
     }
-    
 }

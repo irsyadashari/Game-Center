@@ -10,12 +10,10 @@ import Combine
 import RealmSwift
 import Foundation
 
-public struct GetFavoriteGamesLocaleDataSource : LocaleDataSource {
+public struct GetFavoriteGamesLocaleDataSource: LocaleDataSource {
     
     public typealias Request = String
-    
     public typealias Response = GameEntity
-    
     private let _realm: Realm
     
     public init(realm: Realm) {
@@ -31,16 +29,12 @@ public struct GetFavoriteGamesLocaleDataSource : LocaleDataSource {
                     .sorted(byKeyPath: "name", ascending: true)
             }()
             completion(.success(gameEntities.toArray(ofType: GameEntity.self)))
-            
         }.eraseToAnyPublisher()
     }
-    
     public func add(entities: [GameEntity]) -> AnyPublisher<Bool, Error> {
         fatalError()
     }
-    
     public func get(id: Int) -> AnyPublisher<GameEntity, Error> {
-        
         return Future<GameEntity, Error> { completion in
             if let gameEntity = {
                 _realm.objects(GameEntity.self).filter("id = \(id)")
@@ -58,9 +52,7 @@ public struct GetFavoriteGamesLocaleDataSource : LocaleDataSource {
             }
         }.eraseToAnyPublisher()
     }
-    
     public func update(id: Int, entity: GameEntity) -> AnyPublisher<Bool, Error> {
         fatalError()
     }
 }
-

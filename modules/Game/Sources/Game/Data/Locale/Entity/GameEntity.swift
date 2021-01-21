@@ -4,7 +4,6 @@
 //
 //  Created by Irsyad Ashari on 13/01/21.
 
-
 import Foundation
 import RealmSwift
 
@@ -18,7 +17,6 @@ public class GameEntity: Object {
     @objc dynamic var desc = ""
     @objc dynamic var favorite = false
     @objc dynamic var genre = ""
-    
     var tags = List<TagEntity>()
     
     public override static func primaryKey() -> String? {

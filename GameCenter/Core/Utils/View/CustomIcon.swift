@@ -11,7 +11,6 @@ struct CustomIcon: View {
     
     var imageName: String
     var color: Color = Color.white
-    
     var body: some View {
         VStack {
             Image(systemName: imageName)
@@ -20,5 +19,4 @@ struct CustomIcon: View {
         }
         .padding()
     }
-    
 }

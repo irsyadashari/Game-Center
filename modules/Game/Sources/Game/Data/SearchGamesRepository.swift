@@ -32,14 +32,10 @@ where
         _remoteDataSource = remoteDataSource
         _mapper = mapper
     }
-    
     public func execute(request: String?) -> AnyPublisher<[GameModel], Error> {
-        
         return _remoteDataSource.execute(request: request)
             .map { _mapper.transformResponseToEntity(request: request, response: $0) }
             .map { _mapper.transformEntityToDomain(entity: $0) }
             .eraseToAnyPublisher()
-        
     }
 }
-

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ActivityIndicator: UIViewRepresentable {
-  
     func makeUIView(
         context: UIViewRepresentableContext<ActivityIndicator>
     ) -> UIActivityIndicatorView {
@@ -17,7 +16,6 @@ struct ActivityIndicator: UIViewRepresentable {
         loadingBar.color = .white
         return loadingBar
     }
-    
     func updateUIView(
         _ uiView: UIActivityIndicatorView,
         context: UIViewRepresentableContext<ActivityIndicator>
