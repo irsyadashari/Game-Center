@@ -34,7 +34,6 @@ public struct GetGameRemoteDataSource : DataSource {
                 AF.request(urlRequest)
                     .validate()
                     .responseDecodable(of: GameResponse.self) { response in
-//                        print("responna: \(response.value?.games[0])")
                         switch response.result {
                             case .success(let game):
                                

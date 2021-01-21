@@ -45,10 +45,8 @@ struct GameView: View {
                     .offset(y: -60) // to make the image all the way to top of the head
                 }
             }
-        }.onAppear() {
-            self.presenter.getGame(request: String(game.id))
-            print("ini item gamena: \(self.presenter.item?.desc ?? "nulki descnya")")
-        }.alert(isPresented: $showingAlert) {
+        }
+        .alert(isPresented: $showingAlert) {
             Alert(
                 title: Text("Ow Ow"),
                 message: Text("Something messed up!"),
@@ -236,6 +234,10 @@ extension GameView {
                 .padding(.vertical)
             
             tags
-        }.padding(.top)
+        }.padding(.top).onAppear(perform: {
+            if self.presenter.item == nil {
+                self.presenter.getGame(request: String(game.id))
+            }
+        })
     }
 }

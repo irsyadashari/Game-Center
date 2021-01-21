@@ -41,9 +41,9 @@ extension SearchRow {
     }
     
     var content: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 8) {
             Text(game.name)
-                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                .font(.system(size: 18, weight: .semibold, design: .rounded))
                 .lineLimit(3)
                 .foregroundColor(.white)
             

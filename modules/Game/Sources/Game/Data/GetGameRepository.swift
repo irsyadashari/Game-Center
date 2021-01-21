@@ -44,8 +44,6 @@ where
         
         return _localeDataSource.get(id: Int(request) ?? 0)
             .flatMap { result -> AnyPublisher<GameModel, Error> in
-                
-//                print("resultna game repo : \(result.description)")
                 if result.desc == "" || result.desc == "Unknown"
                 {
                     print("ambil dari remote")
