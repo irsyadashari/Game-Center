@@ -4,10 +4,10 @@ on:
 
   push:
     branches:
-      - redesign-search
+      - lint
   pull_request:
     branches:
-      - redesign-search
+      - lint
 jobs:
   Run_workspace_Tests:
     runs-on: macOS-latest
