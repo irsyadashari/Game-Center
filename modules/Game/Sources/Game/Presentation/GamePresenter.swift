@@ -49,7 +49,7 @@ where
             .store(in: &cancellables)
     }
     
-    public func updateFavoriteMeal(request: FavoriteUseCase.Request) {
+    public func updateFavoriteGame(request: FavoriteUseCase.Request) {
         _favoriteUseCase.execute(request: request)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in

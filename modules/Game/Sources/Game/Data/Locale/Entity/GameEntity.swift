@@ -17,6 +17,7 @@ public class GameEntity: Object {
     @objc dynamic var rating = 0.0
     @objc dynamic var desc = ""
     @objc dynamic var favorite = false
+    @objc dynamic var genre = ""
     
     var tags = List<TagEntity>()
     

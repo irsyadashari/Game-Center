@@ -17,14 +17,25 @@ struct HomeView: View {
     var body: some View {
         
         ZStack {
+            Color.baseColor
+                .edgesIgnoringSafeArea(.all)
             
             if presenter.isLoading {
-                
+                loadingIndicator
+            } else if presenter.isError {
+                errorIndicator
+            } else if presenter.list.isEmpty {
+                emptyGenres
+            } else {
+                content
             }
-            
+        }.onAppear {
+            if self.presenter.list.count == 0 {
+                self.presenter.getList(request: nil)
+            }
         }
+        .navigationBarHidden(true)
     }
-    
 }
 
 extension HomeView {
@@ -32,6 +43,7 @@ extension HomeView {
     var loadingIndicator: some View {
         VStack {
             Text("Loading genres :D")
+                .foregroundColor(.white)
             ActivityIndicator()
         }
     }

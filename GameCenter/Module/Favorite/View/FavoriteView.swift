@@ -18,6 +18,8 @@ struct FavoriteView: View {
     var body: some View {
         
         ZStack {
+            Color.baseColor
+                .edgesIgnoringSafeArea(.all)
             
             if presenter.isLoading {
                 loadingIndicator
@@ -30,7 +32,8 @@ struct FavoriteView: View {
             }
         }.onAppear {
             self.presenter.getList(request: nil)
-        }.navigationBarTitle(
+        }
+        .navigationBarTitle(
             Text("Favorite Games"),
             displayMode: .automatic
         )
@@ -56,7 +59,7 @@ extension FavoriteView {
         CustomEmptyView(
             image: "No Favorite",
             title: "Shoot some of your fave game first lads!"
-        ).offset(y: 80)
+        )
     }
     
     var content: some View {
@@ -71,6 +74,7 @@ extension FavoriteView {
                 ZStack {
                     self.linkBuilder(for: game) {
                         FavoriteRow(game: game)
+                            .padding()
                     }.buttonStyle(PlainButtonStyle())
                 }
                 

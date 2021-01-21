@@ -15,6 +15,7 @@ public struct GameModel: Equatable, Identifiable {
     public var released: String = ""
     public var rating: Double = 0.0
     public var desc: String = ""
+    public var genre: String = ""
     public var tags: [TagModel] = []
     public var favorite: Bool = false
     

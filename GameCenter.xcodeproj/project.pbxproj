@@ -26,6 +26,12 @@
 		BF33223925B00BE500910C96 /* SearchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33223825B00BE500910C96 /* SearchRow.swift */; };
 		BF33223C25B0155200910C96 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33223B25B0155200910C96 /* TabItem.swift */; };
 		BF33223F25B015C400910C96 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33223E25B015C400910C96 /* SearchView.swift */; };
+		BF33224625B1466200910C96 /* Jajargenjang.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33224525B1466200910C96 /* Jajargenjang.swift */; };
+		BF33224925B169FF00910C96 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33224825B169FF00910C96 /* View+Ext.swift */; };
+		BF33224C25B16C4E00910C96 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33224B25B16C4E00910C96 /* String+Ext.swift */; };
+		BF33225125B180AE00910C96 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF33225025B180AE00910C96 /* IQKeyboardManagerSwift */; };
+		BF33225425B1A59000910C96 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33225325B1A59000910C96 /* Color+Ext.swift */; };
+		BF33225725B1DEFD00910C96 /* CustomIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33225625B1DEFD00910C96 /* CustomIcon.swift */; };
 		BF4002A325AE9C6000F51E07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4002A225AE9C6000F51E07 /* AppDelegate.swift */; };
 		BF4002A525AE9C6000F51E07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4002A425AE9C6000F51E07 /* SceneDelegate.swift */; };
 		BF4002A725AE9C6000F51E07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4002A625AE9C6000F51E07 /* ContentView.swift */; };
@@ -38,6 +44,9 @@
 		BF4002E925AE9F7000F51E07 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BF4002E825AE9F7000F51E07 /* SDWebImageSwiftUI */; };
 		BF7E0A4E25AEB82500B73F64 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = BF7E0A4D25AEB82500B73F64 /* Core */; };
 		BF7E0A5025AEB82500B73F64 /* Genre in Frameworks */ = {isa = PBXBuildFile; productRef = BF7E0A4F25AEB82500B73F64 /* Genre */; };
+		BFE0B7E625B5273D000458B0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE0B7E525B5273D000458B0 /* ProfileView.swift */; };
+		BFE0B7EA25B52C37000458B0 /* IconInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE0B7E925B52C37000458B0 /* IconInfo.swift */; };
+		BFE0B7ED25B566B3000458B0 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE0B7EC25B566B3000458B0 /* HostingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +69,11 @@
 		BF33223825B00BE500910C96 /* SearchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRow.swift; sourceTree = "<group>"; };
 		BF33223B25B0155200910C96 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		BF33223E25B015C400910C96 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		BF33224525B1466200910C96 /* Jajargenjang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jajargenjang.swift; sourceTree = "<group>"; };
+		BF33224825B169FF00910C96 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		BF33224B25B16C4E00910C96 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		BF33225325B1A59000910C96 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		BF33225625B1DEFD00910C96 /* CustomIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIcon.swift; sourceTree = "<group>"; };
 		BF40029F25AE9C6000F51E07 /* GameCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4002A225AE9C6000F51E07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF4002A425AE9C6000F51E07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +84,9 @@
 		BF4002B025AE9C6400F51E07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF4002DB25AE9DD600F51E07 /* Core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Core; path = modules/Core; sourceTree = "<group>"; };
 		BF4002EC25AEAD6E00F51E07 /* Genre */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Genre; path = modules/Genre; sourceTree = "<group>"; };
+		BFE0B7E525B5273D000458B0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		BFE0B7E925B52C37000458B0 /* IconInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInfo.swift; sourceTree = "<group>"; };
+		BFE0B7EC25B566B3000458B0 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF7E0A5025AEB82500B73F64 /* Genre in Frameworks */,
+				BF33225125B180AE00910C96 /* IQKeyboardManagerSwift in Frameworks */,
 				BF4002E925AE9F7000F51E07 /* SDWebImageSwiftUI in Frameworks */,
 				BF0FBFB925AEBBC200E42731 /* Game in Frameworks */,
 				BF4002E525AE9F0B00F51E07 /* RealmSwift in Frameworks */,
@@ -119,6 +137,9 @@
 		BF3321FA25AEDBA500910C96 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BF33224825B169FF00910C96 /* View+Ext.swift */,
+				BF33224B25B16C4E00910C96 /* String+Ext.swift */,
+				BF33225325B1A59000910C96 /* Color+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -131,6 +152,9 @@
 				BF33221E25AFF71600910C96 /* BlurView.swift */,
 				BF33223525B00B7500910C96 /* SearchBar.swift */,
 				BF33223B25B0155200910C96 /* TabItem.swift */,
+				BF33224525B1466200910C96 /* Jajargenjang.swift */,
+				BF33225625B1DEFD00910C96 /* CustomIcon.swift */,
+				BFE0B7E925B52C37000458B0 /* IconInfo.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -293,6 +317,7 @@
 				BF4002A225AE9C6000F51E07 /* AppDelegate.swift */,
 				BF4002A625AE9C6000F51E07 /* ContentView.swift */,
 				BF4002A425AE9C6000F51E07 /* SceneDelegate.swift */,
+				BFE0B7EC25B566B3000458B0 /* HostingController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -309,6 +334,7 @@
 		BF4002BA25AE9C9800F51E07 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				BFE0B7E325B5272D000458B0 /* Profile */,
 				BF33220025AEDBF400910C96 /* Home */,
 				BF3321FF25AEDBEF00910C96 /* Game */,
 				BF3321FE25AEDBE200910C96 /* Search */,
@@ -323,6 +349,22 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFE0B7E325B5272D000458B0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BFE0B7E425B52734000458B0 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		BFE0B7E425B52734000458B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFE0B7E525B5273D000458B0 /* ProfileView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +391,7 @@
 				BF7E0A4D25AEB82500B73F64 /* Core */,
 				BF7E0A4F25AEB82500B73F64 /* Genre */,
 				BF0FBFB825AEBBC200E42731 /* Game */,
+				BF33225025B180AE00910C96 /* IQKeyboardManagerSwift */,
 			);
 			productName = GameCenter;
 			productReference = BF40029F25AE9C6000F51E07 /* GameCenter.app */;
@@ -381,6 +424,7 @@
 				BF4002DD25AE9E1600F51E07 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				BF4002E125AE9F0B00F51E07 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				BF4002E725AE9F7000F51E07 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				BF33224F25B180AE00910C96 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = BF4002A025AE9C6000F51E07 /* Products */;
 			projectDirPath = "";
@@ -410,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF4002A325AE9C6000F51E07 /* AppDelegate.swift in Sources */,
+				BFE0B7E625B5273D000458B0 /* ProfileView.swift in Sources */,
 				BF33223325B0099100910C96 /* FavoriteView.swift in Sources */,
 				BF33221025AFE27700910C96 /* HomeRouter.swift in Sources */,
 				BF33221C25AFF69A00910C96 /* GameRow.swift in Sources */,
@@ -417,17 +462,24 @@
 				BF33223625B00B7500910C96 /* SearchBar.swift in Sources */,
 				BF33223025B0081200910C96 /* FavoriteRow.swift in Sources */,
 				BF33221925AFE5DA00910C96 /* CustomEmptyView.swift in Sources */,
+				BF33224925B169FF00910C96 /* View+Ext.swift in Sources */,
 				BF33221F25AFF71600910C96 /* BlurView.swift in Sources */,
 				BF33220925AEDE8500910C96 /* Injection.swift in Sources */,
 				BF33223F25B015C400910C96 /* SearchView.swift in Sources */,
 				BF33222925B0043C00910C96 /* GenreRow.swift in Sources */,
+				BFE0B7EA25B52C37000458B0 /* IconInfo.swift in Sources */,
+				BFE0B7ED25B566B3000458B0 /* HostingController.swift in Sources */,
 				BF33221325AFE3A800910C96 /* DetailView.swift in Sources */,
+				BF33225425B1A59000910C96 /* Color+Ext.swift in Sources */,
 				BF33221625AFE4DE00910C96 /* ActivityIndicator.swift in Sources */,
+				BF33224625B1466200910C96 /* Jajargenjang.swift in Sources */,
 				BF33220D25AEDF6400910C96 /* APICall.swift in Sources */,
 				BF33223925B00BE500910C96 /* SearchRow.swift in Sources */,
+				BF33224C25B16C4E00910C96 /* String+Ext.swift in Sources */,
 				BF33222225AFF94300910C96 /* DetailRouter.swift in Sources */,
 				BF4002A525AE9C6000F51E07 /* SceneDelegate.swift in Sources */,
 				BF33222525AFFA5400910C96 /* GameView.swift in Sources */,
+				BF33225725B1DEFD00910C96 /* CustomIcon.swift in Sources */,
 				BF33223C25B0155200910C96 /* TabItem.swift in Sources */,
 				BF4002A725AE9C6000F51E07 /* ContentView.swift in Sources */,
 			);
@@ -629,6 +681,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BF33224F25B180AE00910C96 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
 		BF4002DD25AE9E1600F51E07 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -660,6 +720,11 @@
 		BF0FBFB825AEBBC200E42731 /* Game */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Game;
+		};
+		BF33225025B180AE00910C96 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF33224F25B180AE00910C96 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 		BF4002DE25AE9E1600F51E07 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

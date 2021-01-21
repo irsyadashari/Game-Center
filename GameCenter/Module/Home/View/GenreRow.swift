@@ -29,26 +29,23 @@ extension GenreRow {
             .resizable()
             .indicator(.activity)
             .transition(.fade(duration: 0.5))
-            .scaledToFit()
-            .frame(width: 200)
-            .cornerRadius(30)
-            .padding(.top)
+            .scaledToFill()
+            .frame(width: UIScreen.main.bounds.width,
+                   height: 240,
+                   alignment: .center)
+            .mask(Jajargenjang(depth: 80))
+            .offset(y: -12)
     }
     
     var content: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(genre.name)
-                .font(.title)
-                .bold()
-            
-        }.padding(
-            EdgeInsets(
-                top: 0,
-                leading: 16,
-                bottom: 16,
-                trailing: 16
-            )
-        )
+        
+        Text(genre.name)
+            .font(.system(size: 40, weight: .semibold, design: .serif))
+            .bold()
+            .foregroundColor(.white)
+            .frame(width: UIScreen.main.bounds.width - 32, alignment: .trailing)
+            .rotationEffect(Angle(degrees: -12))
+            .offset(y: -16)
     }
     
 }

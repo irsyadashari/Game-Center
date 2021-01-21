@@ -27,14 +27,26 @@ public struct GetGameRemoteDataSource : DataSource {
         return Future<GameResponse, Error> { completion in
             
             guard let request = request else { return completion(.failure(URLError.invalidRequest) )}
-            
             if let url = URL(string: _endpoint + request) {
-                AF.request(url)
+                print("urlna game : \(url)")
+                var urlRequest = URLRequest(url: url)
+                urlRequest.timeoutInterval = 300
+                AF.request(urlRequest)
                     .validate()
-                    .responseDecodable(of: GamesResponse.self) { response in
+                    .responseDecodable(of: GameResponse.self) { response in
                         switch response.result {
-                            case .success(let value):
-                                completion(.success(value.games[0]))
+                            case .success(let game):
+                               
+                                let gameResponse = GameResponse(
+                                    id: Int(game.id ?? 0),
+                                    name: game.name,
+                                    image: game.image,
+                                    released: game.released,
+                                    rating: game.rating,
+                                    desc: game.desc,
+                                    tags: game.tags,
+                                    genres: game.genres)
+                                completion(.success(gameResponse))
                             case .failure:
                                 completion(.failure(URLError.invalidResponse))
                         }

@@ -25,10 +25,9 @@ public struct GetGamesLocaleDataSource : LocaleDataSource {
     public func list(request: String?) -> AnyPublisher<[GameEntity], Error> {
         return Future<[GameEntity], Error> { completion in
             guard let request  = request else { return completion(.failure(DatabaseError.requestFailed)) }
-            
             let games: Results<GameEntity> = {
                 _realm.objects(GameEntity.self)
-                    .filter("game = '\(request)'")
+                    .filter("genre = '\(request)'")
                     .sorted(byKeyPath: "name", ascending: true)
             }()
             
@@ -59,7 +58,7 @@ public struct GetGamesLocaleDataSource : LocaleDataSource {
             
             let games: Results<GameEntity> = {
                 _realm.objects(GameEntity.self)
-                    .filter("id = '\(id)'")
+                    .filter("id = \(id)")
             }()
             
             guard let game = games.first else {
@@ -75,7 +74,7 @@ public struct GetGamesLocaleDataSource : LocaleDataSource {
     public func update(id: Int, entity: GameEntity) -> AnyPublisher<Bool, Error> {
         return Future<Bool, Error> { completion in
             if let gameEntity = {
-                _realm.objects(GameEntity.self).filter("id = '\(id)'")
+                _realm.objects(GameEntity.self).filter("id = \(id)")
             }().first {
                 do {
                     try _realm.write {

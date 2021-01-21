@@ -44,16 +44,19 @@ where
         
         return _localeDataSource.get(id: Int(request) ?? 0)
             .flatMap { result -> AnyPublisher<GameModel, Error> in
-                if result.tags.isEmpty {
+                if result.desc == "" || result.desc == "Unknown"
+                {
+                    print("ambil dari remote")
                     return _remoteDataSource.execute(request: request)
                         .map { _mapper.transformResponseToEntity(request: request, response: $0) }
                         .catch { _ in _localeDataSource.get(id: Int(request) ?? 0) }
                         .flatMap { _localeDataSource.update(id: Int(request) ?? 0, entity: $0) }
-                        .filter { $0 }
+                    .filter { $0 }
                         .flatMap { _ in _localeDataSource.get(id: Int(request) ?? 0)
                             .map { _mapper.transformEntityToDomain(entity: $0) }
                         }.eraseToAnyPublisher()
                 } else {
+                    print("ambil dari locale")
                     return _localeDataSource.get(id: Int(request) ?? 0)
                         .map { _mapper.transformEntityToDomain(entity: $0) }
                         .eraseToAnyPublisher()

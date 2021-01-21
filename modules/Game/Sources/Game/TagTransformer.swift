@@ -23,7 +23,10 @@ public struct TagTransformer: Mapper {
         if let tags = response.tags {
             
             for item in tags {
-                tagEntities.append(TagEntity(value: item))
+                let entity = TagEntity()
+                entity.id = item.id
+                entity.name = item.name
+                tagEntities.append(entity)
             }
         }
         

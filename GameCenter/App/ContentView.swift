@@ -10,6 +10,8 @@ import Game
 import Genre
 import Core
 
+let navStyle = UINavigationBarAppearance()
+
 struct ContentView: View {
     
     @EnvironmentObject var homePresenter: GetListPresenter<Any, GenreModel, Interactor<Any, [GenreModel],
@@ -22,7 +24,12 @@ struct ContentView: View {
     @EnvironmentObject var searchPresenter: SearchPresenter<GameModel, Interactor<String, [GameModel],
         SearchGamesRepository<GetGamesRemoteDataSource, GamesTransformer<GameTransformer<TagTransformer>>>>>
     
+    init() {
+        setupStyleBar()
+    }
+    
     var body: some View {
+        
         TabView {
             NavigationView {
                 HomeView(presenter: homePresenter)
@@ -41,6 +48,32 @@ struct ContentView: View {
             }.tabItem {
                 TabItem(imageName: "heart", title: "Favorite")
             }
-        }
+            
+            NavigationView {
+               ProfileView()
+            }.tabItem {
+                TabItem(imageName: "person", title: "Profile")
+            }
+            
+        }.accentColor(.white)
+    }
+}
+
+//MARK: - basic view appearance
+extension ContentView {
+    func setupStyleBar() {
+        UITabBar.appearance().barTintColor = UIColor(.baseColor)
+        UITabBar.appearance().tintColor = .yellow
+        UITabBar.appearance().layer.borderColor = UIColor.clear.cgColor
+        UITabBar.appearance().clipsToBounds = true
+        UITabBar.appearance().isTranslucent = true
+        
+        navStyle.configureWithTransparentBackground()
+        navStyle.backgroundColor = UIColor(.baseColor)
+        navStyle.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navStyle.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().standardAppearance = navStyle
+        UINavigationBar.appearance().scrollEdgeAppearance = navStyle
+       
     }
 }
