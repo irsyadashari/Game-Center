@@ -35,10 +35,8 @@ public struct GetGamesLocaleDataSource : LocaleDataSource {
             
         }.eraseToAnyPublisher()
     }
-    
     public func add(entities: [GameEntity]) -> AnyPublisher<Bool, Error> {
         return Future<Bool, Error> { completion in
-            
             do {
                 try _realm.write {
                     for game in entities {
@@ -49,28 +47,21 @@ public struct GetGamesLocaleDataSource : LocaleDataSource {
             } catch {
                 completion(.failure(DatabaseError.requestFailed))
             }
-            
         }.eraseToAnyPublisher()
     }
-    
     public func get(id: Int) -> AnyPublisher<GameEntity, Error> {
-        return Future<GameEntity, Error> { completion in
-            
+        return Future<GameEntity, Error> { completion in       
             let games: Results<GameEntity> = {
                 _realm.objects(GameEntity.self)
                     .filter("id = \(id)")
             }()
-            
             guard let game = games.first else {
                 completion(.failure(DatabaseError.requestFailed))
                 return
             }
-            
             completion(.success(game))
-            
         }.eraseToAnyPublisher()
     }
-    
     public func update(id: Int, entity: GameEntity) -> AnyPublisher<Bool, Error> {
         return Future<Bool, Error> { completion in
             if let gameEntity = {
@@ -87,7 +78,6 @@ public struct GetGamesLocaleDataSource : LocaleDataSource {
                         gameEntity.setValue(entity.tags, forKey: "tags")
                     }
                     completion(.success(true))
-                    
                 } catch {
                     completion(.failure(DatabaseError.requestFailed))
                 }

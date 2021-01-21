@@ -31,7 +31,6 @@ where
         _remoteDataSource = remoteDataSource
         _mapper = mapper
     }
-    
     public func execute(request: Any?) -> AnyPublisher<[GenreModel], Error> {
         return _localeDataSource.list(request: nil)
             .flatMap { result -> AnyPublisher<[GenreModel], Error> in
@@ -53,4 +52,3 @@ where
             }.eraseToAnyPublisher()
     }
 }
-

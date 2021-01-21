@@ -40,4 +40,3 @@ public struct GetGenresRemoteDataSource : DataSource {
         }.eraseToAnyPublisher()
     }
 }
-

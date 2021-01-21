@@ -12,7 +12,6 @@ import Game
 struct SearchRow: View {
     
     var game: GameModel
-    
     var body: some View {
         VStack {
             HStack(alignment: .top) {
@@ -21,15 +20,12 @@ struct SearchRow: View {
                 Spacer()
             }
             .padding(.horizontal, 16)
-            .padding(.vertical, 8)
-            
+            .padding(.vertical, 8) 
         }
     }
-    
 }
 
 extension SearchRow {
-    
     var imageGenre: some View {
         WebImage(url: URL(string: game.image))
             .resizable()
@@ -39,24 +35,20 @@ extension SearchRow {
             .frame(width: 120)
             .cornerRadius(20)
     }
-    
     var content: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(game.name)
                 .font(.system(size: 18, weight: .semibold, design: .rounded))
                 .lineLimit(3)
                 .foregroundColor(.white)
-            
             Text("Released : \(game.released.formatDate())")
                 .font(.system(size: 12))
                 .lineLimit(2)
                 .foregroundColor(.white)
-            
             Text("Genre : \(game.genre)")
                 .font(.system(size: 12))
                 .lineLimit(2)
                 .foregroundColor(.white)
-            
         }.padding(
             EdgeInsets(
                 top: 0,
@@ -66,6 +58,4 @@ extension SearchRow {
             )
         )
     }
-    
 }
-

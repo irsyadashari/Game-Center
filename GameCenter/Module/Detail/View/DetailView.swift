@@ -14,19 +14,15 @@ import Genre
 struct DetailView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     @ObservedObject var presenter: GetListPresenter<String, GameModel, Interactor<String, [GameModel],
         GetGamesRepository<GetGamesLocaleDataSource, GetGamesRemoteDataSource,
         GamesTransformer<GameTransformer<TagTransformer>>>>>
     
     var genre: GenreModel
-    
     var body: some View {
         ZStack {
-            
             Color.baseColor
                 .edgesIgnoringSafeArea(.all)
-            
             if presenter.isLoading {
                 loadingIndicator
             } else if presenter.isLoading {
@@ -59,11 +55,9 @@ struct DetailView: View {
             }
         )
     }
-    
 }
 
 extension DetailView {
-    
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
     }) {
@@ -74,11 +68,9 @@ extension DetailView {
                 .frame(width: 30, height: 30)
         }
     }
-    
     var spacer: some View {
         Spacer()
     }
-    
     var loadingIndicator: some View {
         VStack {
             Text("Loading your genres :D")
@@ -86,14 +78,12 @@ extension DetailView {
             ActivityIndicator()
         }
     }
-    
     var errorIndicator: some View {
         CustomEmptyView(
             image: "Not Found",
             title: presenter.errorMessage
         ).offset(y: 80)
     }
-    
     var imageGenre: some View {
         WebImage(url: URL(string: genre.image))
             .resizable()
@@ -104,18 +94,14 @@ extension DetailView {
                    height: 300,
                    alignment: .center)
             .edgesIgnoringSafeArea(.top)
-            
     }
-    
     func title(_ title: String) -> some View {
         return Text(title)
             .foregroundColor(.white)
             .font(.headline)
     }
-    
     var content: some View {
         VStack(alignment: .center, spacing: 0) {
-            
             if !presenter.list.isEmpty {
                 title("Games with \(genre.name) genre")
                     .padding(
@@ -128,10 +114,8 @@ extension DetailView {
             }
         }
     }
-    
     var gamesVertical: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            
             ForEach(self.presenter.list,
                     id: \.id
             ) { game in
@@ -143,7 +127,6 @@ extension DetailView {
             }
         }
     }
-    
     func linkBuilder<Content: View>(
         for game: GameModel,
         @ViewBuilder content: () -> Content
@@ -152,5 +135,4 @@ extension DetailView {
             destination: DetailRouter().makeGameView(for: game)
         ) { content() }
     }
-    
 }

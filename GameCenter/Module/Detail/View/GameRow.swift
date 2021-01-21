@@ -10,9 +10,7 @@ import SDWebImageSwiftUI
 import Game
 
 struct GameRow: View {
-    
     var game: GameModel
-    
     var body: some View {
         VStack {
             imageGame
@@ -22,7 +20,6 @@ struct GameRow: View {
 }
 
 extension GameRow {
-    
     var imageGame: some View {
         WebImage(url: URL(string: self.game.image))
             .resizable()
@@ -34,9 +31,7 @@ extension GameRow {
                    alignment: .center)
             .mask(Jajargenjang(depth: 80))
     }
-    
     var titleGame: some View {
-        
         Text(self.game.name)
             .font(.title)
             .bold()
@@ -45,5 +40,4 @@ extension GameRow {
             .rotationEffect(Angle(degrees: -12))
             .offset(y: -16)
     }
-    
 }

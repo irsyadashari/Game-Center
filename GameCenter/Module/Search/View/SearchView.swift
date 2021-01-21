@@ -12,24 +12,17 @@ import Game
 struct SearchView: View {
     
     @ObservedObject var presenter: SearchPresenter<GameModel, Interactor<String, [GameModel], SearchGamesRepository<GetGamesRemoteDataSource, GamesTransformer<GameTransformer<TagTransformer>>>>>
-    
     var body: some View {
-        
         ZStack {
             Color.baseColor
-                .edgesIgnoringSafeArea(.all)
-            
+                .edgesIgnoringSafeArea(.all)   
             VStack {
-                
                 SearchBar(
                     text: $presenter.keyword,
                     onSearchButtonClicked: presenter.search
                 ).foregroundColor(.black)
-                
                 Spacer()
-                
                 ZStack {
-                    
                     if presenter.isLoading {
                         loadingIndicator
                     } else if presenter.keyword.isEmpty {
@@ -53,9 +46,7 @@ struct SearchView: View {
                         }
                     }
                 }
-                
                 Spacer()
-                
             }
             .navigationBarTitle(
                 Text("Search Games"),
@@ -66,7 +57,6 @@ struct SearchView: View {
 }
 
 extension SearchView {
-    
     var loadingIndicator: some View {
         VStack {
             Text("Loading...")
@@ -74,14 +64,12 @@ extension SearchView {
             ActivityIndicator()
         }
     }
-    
     var errorIndicator: some View {
         CustomEmptyView(
             image: "Not Found",
             title: presenter.errorMessage
         )
     }
-    
     var emptyTitle: some View {
         CustomEmptyView(
             image: "search",
@@ -94,7 +82,6 @@ extension SearchView {
             title: "Data not found"
         )
     }
-    
     func linkBuilder<Content: View>(
         for game: GameModel,
         @ViewBuilder content: () -> Content
@@ -104,4 +91,3 @@ extension SearchView {
         ) { content() }
     }
 }
-

@@ -34,14 +34,13 @@ public struct GetGamesRemoteDataSource : DataSource {
                     .validate()
                     .responseDecodable(of: GamesResponse.self) { response in
                         switch response.result {
-                            case .success(let value):
-                                completion(.success(value.games))
-                            case .failure:
-                                completion(.failure(URLError.invalidResponse))
+                        case .success(let value):
+                            completion(.success(value.games))
+                        case .failure:
+                            completion(.failure(URLError.invalidResponse))
                         }
                     }
             }
         }.eraseToAnyPublisher()
     }
 }
-

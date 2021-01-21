@@ -10,20 +10,16 @@ import SDWebImageSwiftUI
 import Genre
 
 struct GenreRow: View {
-    
     var genre: GenreModel
-    
-    var body: some View{
+    var body: some View {
         VStack {
             imageGenre
             content
         }
     }
-    
 }
 
 extension GenreRow {
-    
     var imageGenre: some View {
         WebImage(url: URL(string: genre.image))
             .resizable()
@@ -36,9 +32,7 @@ extension GenreRow {
             .mask(Jajargenjang(depth: 80))
             .offset(y: -12)
     }
-    
     var content: some View {
-        
         Text(genre.name)
             .font(.system(size: 40, weight: .semibold, design: .serif))
             .bold()
@@ -47,5 +41,4 @@ extension GenreRow {
             .rotationEffect(Angle(degrees: -12))
             .offset(y: -16)
     }
-    
 }

@@ -25,7 +25,6 @@ public struct GetGameRemoteDataSource : DataSource {
     public func execute(request: Request?) -> AnyPublisher<Response, Error> {
         
         return Future<GameResponse, Error> { completion in
-            
             guard let request = request else { return completion(.failure(URLError.invalidRequest) )}
             if let url = URL(string: _endpoint + request) {
                 print("urlna game : \(url)")
@@ -35,9 +34,8 @@ public struct GetGameRemoteDataSource : DataSource {
                     .validate()
                     .responseDecodable(of: GameResponse.self) { response in
                         switch response.result {
-                            case .success(let game):
-                               
-                                let gameResponse = GameResponse(
+                        case .success(let game):        
+                            let gameResponse = GameResponse(
                                     id: Int(game.id ?? 0),
                                     name: game.name,
                                     image: game.image,
@@ -47,8 +45,8 @@ public struct GetGameRemoteDataSource : DataSource {
                                     tags: game.tags,
                                     genres: game.genres)
                                 completion(.success(gameResponse))
-                            case .failure:
-                                completion(.failure(URLError.invalidResponse))
+                        case .failure:
+                            completion(.failure(URLError.invalidResponse))
                         }
                     }
             }

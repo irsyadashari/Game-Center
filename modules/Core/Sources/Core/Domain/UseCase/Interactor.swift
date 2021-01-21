@@ -16,7 +16,6 @@ where R.Request == Request, R.Response == Response {
     public init(repository: R) {
         _repository = repository
     }
-    
     public func execute(request: Request?) -> AnyPublisher<Response, Error> {
         _repository.execute(request: request)
     }

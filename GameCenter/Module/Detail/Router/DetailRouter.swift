@@ -11,9 +11,7 @@ import Core
 import Game
 
 class DetailRouter {
-    
     func makeGameView(for game: GameModel) -> some View {
-        
         let useCase: Interactor<
             String,
             GameModel,
@@ -22,7 +20,6 @@ class DetailRouter {
                 GetGameRemoteDataSource,
                 GameTransformer<TagTransformer>>
         > = Injection.init().provideGame()
-        
         let favoriteUseCase: Interactor<
             String,
             GameModel,
@@ -30,10 +27,7 @@ class DetailRouter {
                 GetFavoriteGamesLocaleDataSource,
                 GameTransformer<TagTransformer>>
         > = Injection.init().provideUpdateFavorite()
-        
         let presenter = GamePresenter(gameUseCase: useCase, favoriteUseCase: favoriteUseCase)
-        
         return GameView(presenter: presenter, game: game)
     }
-    
 }

@@ -32,11 +32,9 @@ where
         _localeDataSource = localeDataSource
         _mapper = mapper
     }
-    
     public func execute(request: String?) -> AnyPublisher<[GameModel], Error> {
         return _localeDataSource.list(request: request)
             .map { _mapper.transformEntityToDomain(entity: $0) }
             .eraseToAnyPublisher()
     }
 }
-
