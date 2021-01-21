@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 public class SearchPresenter<Response, Interactor: UseCase>: ObservableObject where Interactor.Request == String, Interactor.Response == [Response] {
+    
     private var cancellables: Set<AnyCancellable> = []
     
     private let _useCase: Interactor
@@ -17,10 +18,13 @@ public class SearchPresenter<Response, Interactor: UseCase>: ObservableObject wh
     @Published public var errorMessage: String = ""
     @Published public var isLoading: Bool = false
     @Published public var isError: Bool = false
+    
     public var keyword = ""
+    
     public init(useCase: Interactor) {
         _useCase = useCase
     }
+    
     public func search() {
         isLoading = true
         _useCase.execute(request: keyword)

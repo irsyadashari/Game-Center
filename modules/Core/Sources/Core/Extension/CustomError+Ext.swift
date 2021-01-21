@@ -19,11 +19,14 @@ public enum URLError: LocalizedError {
         case .addressUnreachable(let url): return "\(url.absoluteString) is unreachable."
         }
     }
+    
 }
 
 public enum DatabaseError: LocalizedError {
+    
     case invalidInstance
     case requestFailed
+    
     public var errorDescription: String? {
         switch self {
         case .invalidInstance: return "Database instance is not valid."
