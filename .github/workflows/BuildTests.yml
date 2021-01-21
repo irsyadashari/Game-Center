@@ -18,9 +18,4 @@ jobs:
     - name: Select Xcode
       run: sudo xcode-select -switch /Applications/Xcode_12.2.app && /usr/bin/xcodebuild -version
     - name: Run unit tests
-      run: |
-        xcodebuild GameCenter.xcodeproj \
-            -scheme GameCenter \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.3' \
-            test
+      run: xcodebuild test -scheme GameCenter -destination "platform=iOS Simulator,name=iPhone 11,OS=14.3"
